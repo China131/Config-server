@@ -7,16 +7,35 @@
     <groupId>general.om.cn</groupId>
     <artifactId>config-server</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <!--<packaging>jar</packaging>-->
     <parent>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-config-server</artifactId>
-        <version>1.4.0.RELEASE</version>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.4.3.RELEASE</version>
         <relativePath/>
     </parent>
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud.version>1.3.1.RELEASE</spring-cloud.version>
     </properties>
+    <dependencyManagement>
+        <dependencies>
+            <!--<dependency>-->
+                <!--<groupId>org.springframework.cloud</groupId>-->
+                <!--<artifactId>spring-cloud-dependencies</artifactId>-->
+                <!--<version>1.4.3.RELEASE</version>-->
+                <!--<type>pom</type>-->
+                <!--<scope>import</scope>-->
+            <!--</dependency>-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-config</artifactId>
+                <version>1.4.0.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <dependencies>
 
         <dependency>
@@ -34,33 +53,64 @@
             <artifactId>spring-cloud-config-client</artifactId>
             <version>1.4.3.RELEASE</version>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-autoconfigure</artifactId>-->
-            <!--<version>1.5.12.RELEASE</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>1.5.12.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <version>1.5.10.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <version>1.5.10.RELEASE</version>
+        </dependency>
 
     </dependencies>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Brixton.RELEASE</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+
 
     <build>
         <plugins>
+            <!--<plugin>-->
+                <!--<groupId>org.mybatis.generator</groupId>-->
+                <!--<artifactId>mybatis-generator-maven-plugin</artifactId>-->
+                <!--<version>1.3.5</version>-->
+                <!--<configuration>-->
+                    <!--<configurationFile>src/main/resources/generatorConfig.xml</configurationFile>-->
+                    <!--<verbose>true</verbose>-->
+                    <!--<overwrite>true</overwrite>-->
+                <!--</configuration>-->
+                <!--<dependencies>-->
+                    <!--&lt;!&ndash;<dependency>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<groupId>mysql</groupId>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<artifactId>mysql-connector-java</artifactId>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<version>${mysql.driver.version}</version>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</dependency>&ndash;&gt;-->
+                    <!--<dependency>-->
+                        <!--<groupId>com.itfsw</groupId>-->
+                        <!--<artifactId>mybatis-generator-plugin</artifactId>-->
+                        <!--<version>1.0.12</version>-->
+                    <!--</dependency>-->
+                <!--</dependencies>-->
+            <!--</plugin>-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-deploy-plugin</artifactId>-->
+                <!--<version>2.8.2</version>-->
+                <!--<configuration>-->
+                    <!--<skip>true</skip>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
         </plugins>
+
     </build>
 
 </project>
